@@ -1,0 +1,37 @@
+{
+    "name": "log4js",
+    "version": "0.0.1",
+    "description": "",
+    "keywords": [
+        "logging",
+        "log",
+        "log4j",
+        "node"
+    ],
+    "main": "./lib/log4js",
+    "author": "Govind R",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nomiddlename/log4js-node.git"
+    },
+    "bugs": {
+        "url": "http://github.com/nomiddlename/log4js-node/issues"
+    },
+    "engines": {
+        "node": ">=0.8"
+    },
+    "scripts": {
+        "test": "vows"
+    },
+    "directories": {
+        "test": "test",
+        "lib": "lib"
+    },
+    "dependencies": {
+        "redis": "~0.10.1",
+        "underscore": "~1.6.0"
+    },
+    "browser": {
+        "os": false
+    }
+}

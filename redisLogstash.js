@@ -33,6 +33,6 @@ function configure(config) {
     return redisAppender(layout, config);
 }
 
-exports.name = "redis";
+exports.name = "redisLogstash";
 exports.appender = redisAppender;
 exports.configure = configure;
