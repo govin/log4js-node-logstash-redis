@@ -5,12 +5,12 @@ var _ = require('underscore');
 
 function redisAppender (layout, config) {
     layout = layout || layouts.colouredLayout;
+    var client = redis.createClient(config.redisPort, config.redisHost).on('error', console.log);
     return function(loggingEvent) {
         var logObject = {}
         _.extend(logObject, config.baseLogFields)
         logObject.level = loggingEvent.level.levelStr
         if (loggingEvent.data.length > 0) {
-            var client = redis.createClient(config.redisPort, config.redisHost).on('error', console.log);
             var data = loggingEvent.data[0]
             if (typeof data == "string") {
                 logObject.message = data
@@ -20,7 +20,6 @@ function redisAppender (layout, config) {
             }
 
             client.rpush(config.listName, JSON.stringify(logObject));
-            client.quit();
         }
     };
 }
